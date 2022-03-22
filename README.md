@@ -15,5 +15,5 @@ See https://github.com/na-ka-na/ExcelCompare for documentation of which paramete
 To build this:
 
 ```
-docker build -t lukauskas/docker-excelcompare .
+docker build -t lukauskas/docker-excelcompare:0.6.1 -t lukauskas/docker-excelcompare:latest .
 ```
