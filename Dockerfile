@@ -2,6 +2,8 @@
 # Credit to maslick and his stackoverflow post
 # https://stackoverflow.com/a/57124028/171400
 # A lot of this docker file is inspired by his
+# dockerfile: https://github.com/maslick/minimalka
+
 FROM debian:bullseye-slim as builder
 
 ENV EXCELCOMPARE_VERSION="0.6.1"
@@ -18,6 +20,7 @@ RUN mkdir -p "/app" \
     && wget --quiet ${EXCELCOMPARE_URL} -O excelcompare.zip \
     && unzip excelcompare.zip \
     && rm excelcompare.zip \
+    && sed -i 's/java -ea/java ${JAVA_OPTIONS} -ea/' /app/bin/excel_cmp \
     && chmod +x /app/bin/excel_cmp
 
 FROM maslick/minimalka:jdk11
