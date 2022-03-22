@@ -24,4 +24,4 @@ FROM maslick/minimalka:jdk11
 COPY --from=builder "/app" "/app"
 
 WORKDIR /wd
-CMD /app/bin/excel_cmp
+ENTRYPOINT ["/app/bin/excel_cmp"]
